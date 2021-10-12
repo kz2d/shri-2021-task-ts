@@ -5,8 +5,8 @@ console.log(style('red text', { font: 'red' }));
 console.log(style('green text', { font: 'green' }));
 console.log(style('blue text', { font: 'blue' }));
 console.log('\nall colors:');
-const isColor = (name: string) => fontColors.hasOwnProperty(name);
-const colorList: (keyof ColorSettings)[] = (Object.keys(fontColors) as Array<keyof ColorSettings>).filter(isColor);
+const isColor = (name: string): name is keyof ColorSettings => fontColors.hasOwnProperty(name);
+const colorList: (keyof ColorSettings)[] = Object.keys(fontColors).filter(isColor);
 console.log(
     Array.from('Message of all colors')
         .map((char, i) => {
