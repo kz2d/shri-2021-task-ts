@@ -21,10 +21,10 @@ export type TextOption = {
     font?: keyof ColorSettings;
     background?: keyof ColorSettings;
     effects?: [keyof Effect];
-    bold?: keyof ColorSettings;
-    italic?: keyof ColorSettings;
-    mono?: keyof ColorSettings;
-    link?: keyof ColorSettings;
+    bold?: boolean;
+    italic?: boolean;
+    mono?: boolean;
+    link?: string;
 };
 
 type Color = string;
@@ -59,7 +59,19 @@ export const backgroundColors: ColorSettings = {
     cyan: '\x1b[46m',
     white: '\x1b[47m',
 };
-export const contrast: ColorSettings = {
+
+export type ColorArray = {
+    black: keyof ColorSettings;
+    red: keyof ColorSettings;
+    green: keyof ColorSettings;
+    yellow: keyof ColorSettings;
+    blue: keyof ColorSettings;
+    magenta: keyof ColorSettings;
+    cyan: keyof ColorSettings;
+    white: keyof ColorSettings;
+};
+
+export const contrast: ColorArray = {
     black: 'white',
     red: 'black',
     green: 'black',
